@@ -1,0 +1,12 @@
+[Desktop ]
+Type=X-GNOME-Metatheme
+Name=Elemento Dark
+Comment=GTK Theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Elemento Dark
+MetacityTheme=Elemento Dark
+IconTheme=Luna-Dark
+CursorTheme=Luna
+CursorSize=24

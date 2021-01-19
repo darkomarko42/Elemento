@@ -151,8 +151,8 @@ style "murrine-separator"{
 style "murrine-button" = "murrine-wider"{
 
 	bg[ACTIVE]                  = mix(0.1,@fg_color, @bg_color)
-	bg[NORMAL]                  = @bg_color
-	bg[PRELIGHT]				= @bg_color
+	bg[NORMAL]                  = @base_color
+	bg[PRELIGHT]				= @base_color
 	bg[SELECTED]				= @selected_bg_color
 	bg[INSENSITIVE]				= @bg_color
 	
@@ -161,6 +161,7 @@ style "murrine-button" = "murrine-wider"{
 		lightborder_shade	= 1.5
 		lightborderstyle		= 2
 		roundness			= 3
+	gradient_shades     = {1.0, 1.0, 1.0, 0.95}
 	}
 }
 

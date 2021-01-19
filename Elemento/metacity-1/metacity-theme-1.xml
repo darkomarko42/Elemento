@@ -10,10 +10,9 @@
 
 <!-- meaningfull constants -->
 
-<constant name="C_border_focused" value="gtk:custom(m_border,gtk:bg[NORMAL])" />
-<constant name="C_border_unfocused" value="gtk:custom(m_border,gtk:bg[NORMAL])" />
-<constant name="C_titlebar_focused_hilight" value="gtk:custom(metacity_theme,gtk:bg[NORMAL])" />
-<constant name="C_titlebar_unfocused" value="gtk:custom(colorPrimaryBackdrop,gtk:bg[NORMAL])" />
+<constant name="M_border" value="gtk:custom(m_border,gtk:bg[NORMAL])" />
+<constant name="M_titlebar" value="gtk:custom(metacity_theme,gtk:bg[NORMAL])" />
+<constant name="M_titlebar_unfocused" value="gtk:custom(colorPrimaryBackdrop,gtk:bg[NORMAL])" />
 <constant name="C_title_focused" value="gtk:custom(wm_title,gtk:fg[NORMAL])" />
 <constant name="C_title_unfocused" value="gtk:custom(wm_unfocused_title,gtk:fg[NORMAL])" />
 
@@ -27,6 +26,7 @@
 
 <constant name="C_icons_fg_unfocused" value="gtk:custom(wm_unfocused_title,gtk:fg[NORMAL])" />
 
+<constant name="M_highlight" value="gtk:custom(highlight,gtk:bg[NORMAL])" />
 
 <!--<constant name="C_border_focused" value="blend/#000000/gtk:bg[NORMAL]/0.7" />
 <constant name="C_border_unfocused" value="blend/#000000/gtk:bg[NORMAL]/0.8" />
@@ -61,17 +61,17 @@
 
 <!-- geometries -->
 
-<frame_geometry name="normal">
+<frame_geometry name="normal" rounded_top_left="6" rounded_top_right="6">
   <distance name="left_width" value="1"/>
   <distance name="right_width" value="1"/>
   <distance name="bottom_height" value="1"/>
-  <distance name="left_titlebar_edge" value="1"/>
-  <distance name="right_titlebar_edge" value="1"/>
-  <distance name="button_width" value="32"/>
-  <distance name="button_height" value="32"/>
+  <distance name="left_titlebar_edge" value="2"/>
+  <distance name="right_titlebar_edge" value="2"/>
+  <distance name="button_width" value="24"/>
+  <distance name="button_height" value="24"/>
   <distance name="title_vertical_pad" value="0"/>
   <border name="title_border" left="0" right="0" top="0" bottom="0"/>
-  <border name="button_border" left="1" right="0" top="1" bottom="1"/>
+  <border name="button_border" left="4" right="4" top="6" bottom="6"/>
 </frame_geometry>
 
 <!-- strip borders off the normal geometry -->
@@ -110,59 +110,71 @@
   <border name="button_border" left="0" right="0" top="0" bottom="0"/>
 </frame_geometry>
 
-
-
 <!-- window focused -->
 <draw_ops name="draw_titlebar1">
-  <rectangle color="C_titlebar_focused_hilight" x="0" y="0" width="width" height="height" filled="true"/>
-<!-- left border-->	<line color="C_border_focused" x1="0" y1="0" x2="0" y2="height"/>
-<!-- bottom border--> <line color="C_border_focused" x1="0" y1="height-1" x2="width" y2="height-1"/>
-<!-- top border-->	<line color="C_border_focused" x1="0" y1="0" x2="width" y2="0"/>
-<!-- right border-->	<line color="C_border_focused" x1="width-1" y1="0" x2="width-1" y2="height"/>
-	
-<!-- highlight of titlebar--> <line color="rgba(255,255,255,0.5)" x1="0" y1="1" x2="width" y2="1" />
+<!-- titlebar background --> <rectangle color="M_titlebar" x="0" y="0" width="width" height="height" filled="true"/>
+
+<!-- left border-->	<line color="M_border" x1="0" y1="0" x2="0" y2="height"/>
+<!-- bottom border-->  <line color="M_border" x1="0" y1="height-1" x2="width" y2="height-1"/>
+<!-- top border-->	<line color="M_border" x1="0" y1="0" x2="width" y2="0"/>
+<!-- right border-->	<line color="M_border" x1="width-1" y1="0" x2="width-1" y2="height"/>
+
+<!-- highlight of titlebar--> 
+
+<!-- top --><line color="M_highlight" x1="0" y1="1" x2="width" y2="1" />
+<!-- left --><line color="M_highlight" x1="1" y1="0" x2="1" y2="height-3" />
+<!-- right --><line color="M_highlight" x1="width-2" y1="0" x2="width-2" y2="height-3" />
+<!-- bottom --><line color="M_highlight" x1="1" y1="height-2" x2="width-2" y2="height-2"/>
+
 </draw_ops>
 
 <draw_ops name="draw_ledge1">
-	<line color="C_border_focused" x1="0" y1="0" x2="0" y2="height"/>
+	<line color="M_border" x1="0" y1="0" x2="0" y2="height"/>
 </draw_ops>
 
 <draw_ops name="draw_redge1">
-	<line color="C_border_focused" x1="width-1" y1="0" x2="width-1" y2="height"/>
+	<line color="M_border" x1="width-1" y1="0" x2="width-1" y2="height"/>
 </draw_ops>
 
 <draw_ops name="draw_bottomedge1">
-	<line color="C_border_focused" x1="0" y1="0" x2="width" y2="height-1"/>        
+	<line color="M_border" x1="0" y1="0" x2="width" y2="height-1"/>        
 </draw_ops>
 
 
 <!-- window unfocused -->
 <draw_ops name="draw_titlebar0">
-  <rectangle color="C_titlebar_unfocused" x="0" y="0" width="width" height="height" filled="true"/>
-<!-- left border-->	<line color="C_border_focused" x1="0" y1="0" x2="0" y2="height"/>
-<!-- bottom border-->  <line color="C_border_focused" x1="0" y1="height-1" x2="width" y2="height-1"/>
-<!-- top border-->	<line color="C_border_focused" x1="0" y1="0" x2="width" y2="0"/>
-<!-- right border-->	<line color="C_border_focused" x1="width-1" y1="0" x2="width-1" y2="height"/>
-	
-<!-- highlight of titlebar--> <line color="rgba(255,255,255,0.5)" x1="0" y1="1" x2="width" y2="1" />
+
+<!-- titlebar background --> <rectangle color="M_titlebar_unfocused" x="0" y="0" width="width" height="height" filled="true"/>
+
+<!-- left border-->	<line color="M_border" x1="0" y1="0" x2="0" y2="height"/>
+<!-- bottom border-->  <line color="M_border" x1="0" y1="height-1" x2="width" y2="height-1"/>
+<!-- top border-->	<line color="M_border" x1="0" y1="0" x2="width" y2="0"/>
+<!-- right border-->	<line color="M_border" x1="width-1" y1="0" x2="width-1" y2="height"/>
+
+<!-- highlight of titlebar--> 
+
+<!-- top --><line color="M_highlight" x1="0" y1="1" x2="width" y2="1" />
+<!-- left --><line color="M_highlight" x1="1" y1="0" x2="1" y2="height-3" />
+<!-- right --><line color="M_highlight" x1="width-2" y1="0" x2="width-2" y2="height-3" />
+<!-- bottom --><line color="M_highlight" x1="1" y1="height-2" x2="width-2" y2="height-2"/>
+
 </draw_ops>
 
 <draw_ops name="draw_ledge0">
-	<line color="C_border_unfocused" x1="0" y1="0" x2="0" y2="height"/>
+	<line color="M_border" x1="0" y1="0" x2="0" y2="height"/>
 </draw_ops>
 
 <draw_ops name="draw_redge0">
-	<line color="C_border_unfocused" x1="width-1" y1="0" x2="width-1" y2="height"/>
+	<line color="M_border" x1="width-1" y1="0" x2="width-1" y2="height"/>
 </draw_ops>
 
 <draw_ops name="draw_bottomedge0">
-  <line color="C_border_unfocused" x1="0" y1="height-1" x2="width" y2="height-1"/>        
+  <line color="M_border" x1="0" y1="height-1" x2="width" y2="height-1"/>        
 </draw_ops>
 
 <draw_ops name="blank">
 <!-- nothing -->
 </draw_ops>
-
 
 <draw_ops name="title_text">
   <!--<clip x="0" y="0" width="width-SpacerWidth" height="height"/>-->
@@ -194,8 +206,6 @@
 <draw_ops name="title_utility_focused">
   <include name="title_text"/>
 </draw_ops>
-
-
 
 <!-- Buttons background -->
 <draw_ops name="button_prelight_bg">
@@ -286,9 +296,6 @@
   <include name="restore_button"/>
 </draw_ops>
 
-
-
-
 <draw_ops name="menu_button">
   <icon  x="8"
          y="6"
@@ -299,14 +306,9 @@
   <include name="menu_button"/>
 </draw_ops>
 
-
 <draw_ops name="focus_outline">
 <!-- nothing -->
 </draw_ops>
-
-
-
-
 
 <!-- frame style -->
 <frame_style name="normal_focused" geometry="normal">

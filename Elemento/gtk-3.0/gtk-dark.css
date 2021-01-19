@@ -3,7 +3,7 @@
  **********/
 
 @define-color menu_color mix(@bg_color,@base_color,0.5);
-@define-color button_color transparent;
+@define-color button_color @base_color;
 @define-color alt_button @button_color;
 @define-color notibg @base_color;
 @define-color widget_color alpha(@fg_color,0.2);
@@ -49,7 +49,7 @@
 @define-color unfocused_borders @borders;
 @define-color borders_t @borders;
 
-@define-color deco @borders;
+@define-color deco alpha(black,0.5);
 
 @define-color selected_bg_color #00A6FF;
 @define-color selected_fg_color #fff;
@@ -74,7 +74,7 @@
 @define-color metacity_theme @colorPrimary;
 @define-color wm_title @textColorPrimary;
 @define-color wm_unfocused_title alpha(@textColorPrimary,0.5);
-@define-color m_button_hover alpha(@textColorPrimary,0.1);
+@define-color m_button_hover transparent;
 @define-color m_button_active	alpha(@textColorPrimary,0.2);
 @define-color m_border	@borders;
 @define-color colorAccent @selected_bg_color;
@@ -155,11 +155,13 @@
  * Windows Decorations *
  ***********************/
 
-decoration{ box-shadow: 0 8px 16px @shadow,0 0 0 1px @deco; margin: 6px;}
+decoration{ box-shadow: 0 8px 16px @shadow,0 0 0 1px @deco , inset 0 0 0 1px @highlight; padding: 1px; background-color: @colorPrimary; margin: 6px;}
 
-decoration:backdrop{ box-shadow: 0 8px 16px alpha(@shadow,0.5),0 0 0 1px @deco; }
+decoration:backdrop{ box-shadow: 0 8px 16px alpha(@shadow,0.5),0 0 0 1px @deco, inset 0 0 0 1px @highlight; background-color: @colorPrimaryBackdrop; }
 
-.csd.popup decoration {box-shadow: 0 1px 2px @menu_shadow; 	border-radius: 3.0px;}
+dialog decoration, messagedialog decoration,dialog decoration:backdrop, messagedialog decoration:backdrop{ background-color: @bg_color;}
+
+.csd.popup decoration {box-shadow: 0 1px 2px @menu_shadow; 	border-radius: 3.0px; padding: 0;}
 
 dialog decoration, messagedialog decoration, .unified decoration,.background.csd decoration{border-radius: 6.0px;}
 
@@ -185,13 +187,17 @@ headerbar,
 	background-color: @colorPrimary;
 	background-image: none;
 	border-bottom: 1px solid @deco;
-	box-shadow: inset 0 1px @highlight;
+	box-shadow:   inset 0 -1px alpha(@highlight,0.5);
 }
-
-.titlebar.default-decoration { min-height: 30px;} 
-
 headerbar:backdrop,
 .titlebar:not(headerbar):backdrop {background-color: @colorPrimaryBackdrop;}
+
+.maximized headerbar,
+.maximized .titlebar:not(headerbar),
+.fullscreen headerbar,
+.fullscreen .titlebar:not(headerbar) { box-shadow: inset 0 1px @highlight, inset 0 -1px alpha(@highlight,0.5);}
+
+.titlebar.default-decoration { min-height: 30px; box-shadow: inset 0 0 0 1px @highlight;} 
 
 headerbar .title,
 .titlebar:not(headerbar) .title {
@@ -253,18 +259,14 @@ viewswitcherbar actionbar  { padding: 0;}
 /***********
  * Dialogs *
  ***********/
- 
-dialog .titlebar, messagedialog .titlebar{box-shadow: inset 0 1px @highlight,inset 1px 0 @highlight, inset -1px 0 @highlight;}
- 
-dialog, messagedialog {box-shadow: inset 0 -1px @highlight,inset 1px 0 @highlight, inset -1px 0 @highlight;}
+
+dialog .titlebar , messagedialog .titlebar{box-shadow: none;}
 
 messagedialog{ border-radius: 0 0 6.0px 6.0px;}
  
 dialog .titlebar, headerbar.flat,dialog .titlebar.default-decoration,messagedialog .titlebar, 
 messagedialog .titlebar.default-decoration,dialog .titlebar:backdrop, headerbar.flat:backdrop,dialog .titlebar.default-decoration:backdrop,messagedialog .titlebar:backdrop, 
 messagedialog .titlebar.default-decoration:backdrop { background-color: @bg_color; color: @fg_color; border: none; background-image: none;}
-
-headerbar.flat{ box-shadow: inset 0 1px @highlight;}
 
 dialog filechooser treeview.view header button{ box-shadow: inset 0 1px @borders;}
 
@@ -663,11 +665,13 @@ treeview.view.expander:checked {
  * Selections *
  **************/
 
-.view:selected,.view selection, iconview:selected,iconview text:selected ,label selection, spinbutton:not(.vertical) selection, entry selection, .nautilus-window flowboxchild:selected .icon-item-background, box.vertical > widget > widget:selected,XfdesktopIconView.view:active, .nemo-window .nemo-window-pane widget.entry:selected {
+.view:selected,.view selection, iconview:selected,iconview text:selected ,label selection, spinbutton:not(.vertical) selection, entry selection, .nautilus-window flowboxchild:selected .icon-item-background, box.vertical > widget > widget:selected,.nemo-window .nemo-window-pane widget.entry:selected {
 	background-color: alpha(@selected_bg_color,0.3);
 	background-image: none;
 	color: @fg_color;
 }
+
+treeview.view:selected.chromium,treeview.view:selected:focus.chromium,XfdesktopIconView.view:active{background-color: @selected_bg_color; color: @selected_fg_color;}
 
 /**************
  * Separators *
@@ -790,6 +794,8 @@ treeview.view.separator {color: @borders;}
 
 .vertical separator { box-shadow: 0 1px @highlight;}
 .horizontal separator { box-shadow: 1px 0 @highlight;}
+
+paned.vertical separator, paned.horizontal separator{box-shadow: none;}
 
 /************
  * Calendar *
@@ -946,18 +952,13 @@ infobar {
 	border-style: none;
 	margin: 0 0 1px 0;
 	font-weight: bold;
+	background-color: mix(@bg_color,currentcolor,0.2);
 }
 
-infobar.info{background-color: @success_color;}
-infobar.question{background-color: @selected_bg_color;}
-infobar.warning{background-color: @warning_color;}
-infobar.error {background-color: @error_color;}
-
-
-infobar.info > label, infobar.info, infobar.info button {color: mix(@success_color,@fg_color,0.7);}
-infobar.warning > label, infobar.warning, infobar.warning button {color: mix(@warning_color,@fg_color,0.7);}
-infobar.question > label, infobar.question, infobar.question button {color: mix(@selected_bg_color,@fg_color,0.7);}
-infobar.error > label, infobar.error, infobar.error button {color: mix(@error_color,@fg_color,0.7);}
+infobar.info > label, infobar.info, infobar.info button {color: mix(@success_color,@fg_color,0.3);}
+infobar.warning > label, infobar.warning, infobar.warning button {color: mix(@warning_color,@fg_color,0.3);}
+infobar.question > label, infobar.question, infobar.question button {color: mix(@selected_bg_color,@fg_color,0.3);}
+infobar.error > label, infobar.error, infobar.error button {color: mix(@error_color,@fg_color,0.3);}
 infobar label:disabled{color: alpha(currentcolor,0.5);}
 
 infobar button:not(.flat),
@@ -1129,9 +1130,9 @@ button,
 {
 	background-clip: padding-box;
 	border: 1px solid;
-	background-image: none;
+	background-image: linear-gradient(to bottom, transparent,alpha(black,0.05));
 	border-color:	@borders_t;
-	box-shadow: 0 1px @button_shadow, inset 0 1px @highlight;
+	box-shadow: 0 1px @button_shadow, inset 0 1px @highlight, inset 0 0 0 1px alpha(@highlight,0.5);
 }
 
 button,
@@ -1269,10 +1270,11 @@ headerbar viewswitcher button:checked,actionbar viewswitcher button:checked{box-
 
 button.suggested-action{
 	background-color: alpha(@selected_bg_color,0.3);
-	color: mix(@selected_bg_color,@fg_color,0.3);
+	color: mix(@selected_bg_color,@fg_color,0.5);
 	background-clip: border-box;
 	text-shadow: none;
 	-gtk-icon-shadow: none;
+	font-weight: bold;
 }
 
 button.suggested-action:hover,
@@ -1286,10 +1288,11 @@ button.suggested-action:disabled{
 
 button.destructive-action{
 	background-color: alpha(@error_color,0.3);
-	color: mix(@error_color,@fg_color,0.3);
+	color: mix(@error_color,@fg_color,0.5);
 	background-clip: border-box;
 	text-shadow: none;
 	-gtk-icon-shadow: none;
+	font-weight: bold;
 }
 
 button.destructive-action:hover,
@@ -1653,7 +1656,7 @@ treeview.view radio:checked:selected {
 
 	background-color: @selected_bg_color;
 	color: @selected_fg_color;
-	background-image: linear-gradient(to bottom, transparent,alpha(black,0.07));
+	background-image: linear-gradient(to bottom, transparent,alpha(black,0.05));
 	box-shadow: 0 1px @button_shadow, inset 0 1px @highlight;
 	text-shadow: 1px 1px @shadow;
 	-gtk-icon-shadow: 1px 1px @shadow;
@@ -1764,16 +1767,16 @@ switch:checked:disabled {
 
 switch slider {
 	transition: all 270ms cubic-bezier(0, 0, 0.2, 1), box-shadow 180ms cubic-bezier(0, 0, 0.2, 1);
-	margin: 0px;
-	min-height: 18px;
-	min-width: 18px;
+	margin: -1px;
+	min-height: 20px;
+	min-width: 20px;
 	border-radius: 9999px;
 	-gtk-outline-radius: 9999px;
 	background-color: @selected_fg_color;
 	background-clip: padding-box;
 	border: 1px solid @borders_t;
 	box-shadow:inset 0 1px @highlight;
-	background-image: linear-gradient(to bottom, transparent,alpha(black,0.07));
+	background-image: linear-gradient(to bottom, transparent,alpha(black,0.05));
 }
 
 switch:disabled slider {
@@ -1809,14 +1812,16 @@ treeview.view.progressbar {
 	background-image: none;
 }
 
-treeview.view.progressbar:selected:focus, treeview.view.progressbar:selected,treeview.view.progressbar,
-treeview.view.progressbar:selected:focus:backdrop, treeview.view.progressbar:selected:backdrop { color: @selected_fg_color; }
-
 treeview.view.trough {
 	box-shadow: inset 0 0 0 9999px @widget_color, inset 0 0 0 1px @borders_t;
 	background-color: transparent;
 	background-image: none;
 }
+
+treeview.view.progressbar:selected:focus, treeview.view.progressbar:selected,treeview.view.progressbar,
+treeview.view.progressbar:selected:focus:backdrop, treeview.view.progressbar:selected:backdrop { color: @selected_fg_color; }
+
+infobar progress{background-color: currentcolor;}
 
 /*************
  * Level Bar *
@@ -1885,7 +1890,9 @@ scale trough:disabled {}
 scale highlight {
 	border-radius: 3.0px;
 	background-color: @selected_bg_color;
-	box-shadow: inset 0 0 0 1px @borders_t, 0 1px @highlight;
+	box-shadow: inset 0 1px @highlight;
+	background-clip: border-box;
+	border: 1px solid @borders_t;
 }
 
 scale highlight:disabled {	background-color: alpha(@selected_bg_color, 0.5);}
@@ -1902,7 +1909,7 @@ scale slider {
 	background-clip: padding-box;
 	background-color: @selected_fg_color;
 	box-shadow:inset 0 1px @highlight, 0 1px @button_shadow;
-	background-image: linear-gradient(to bottom, transparent,alpha(black,0.07));
+	background-image: linear-gradient(to bottom, transparent,alpha(black,0.05));
 	border: 1px solid;
 	border-color:	@borders_t ;
 	border-radius: 9999px;
@@ -2051,6 +2058,8 @@ scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider { min-width: 4p
  * Menus *
  *********/
  
+.context-menu { font: initial; }
+ 
 menubar,
 .menubar {
 	-GtkWidget-window-dragging: true;
@@ -2102,7 +2111,7 @@ menu,
 }
 
 .csd menu, .csd
-.menu {	padding: 4px 0px; }
+.menu {	padding: 4px 1px; }
 
 menu separator,
 .csd menu separator,
@@ -2379,7 +2388,7 @@ tooltip.background.csd:first-child, tooltip.background.csd:last-child{border-rad
 
 tooltip.background label {	padding: 4px;}
 
-tooltip decoration { border-radius:	3.0px; box-shadow: 0 0 0 1px alpha(white,0.1); }
+tooltip.background.csd decoration { border-radius:	3.0px; box-shadow: 0 0 0 1px alpha(white,0.1); padding: 0; }
 
 tooltip * {	background-color: transparent;	color: white;}
 
@@ -2391,11 +2400,6 @@ filechooser placessidebar.sidebar row.sidebar-row:drop(active):not(:disabled), f
 .nautilus-window placessidebar.sidebar row.sidebar-row:drop(active):not(:disabled),
 .nautilus-window placessidebar.sidebar row.sidebar-row:drop(active):not(:disabled) label,
 .nautilus-window placessidebar.sidebar row.sidebar-row:drop(active):not(:disabled) .sidebar-icon {  color: mix(@warning_color,@fg_color,0.3);}
-
-/***************
- * Chrome(ium) *
- ***************/
-treeview.view:selected.chromium,treeview.view:selected:focus.chromium{background-color: @selected_bg_color; color: @selected_fg_color;}
 
 /************
  * Desktops *
@@ -2578,7 +2582,7 @@ XfdesktopIconView.view:active , XfdesktopIconView.view .label:active{background:
 /* Budgie Panel */
 .budgie-panel label, .budgie-panel image{color: @panel_fg;}
 
-.budgie-panel{background-color: @panel_bg;	transition: all 600ms ease-out; }
+.budgie-panel{background-color: alpha(@panel_bg,0.8);	transition: all 600ms ease-out; }
 
 .budgie-panel.transparent {background-color: transparent; box-shadow: none; text-shadow: 1px 1px @text_shadow_color; -gtk-icon-shadow: 1px 1px @text_shadow_color; }
 
@@ -2716,23 +2720,15 @@ calendar.raven-calendar {border-radius: 3.0px; border-color: @borders; 	border-s
 
 .drop-shadow flowbox flowboxchild:selected{background-color: alpha(@fg_color,0.2);}
 
-.drop-shadow {
-	margin: 5px 9px;
-	padding: 4px;
+.drop-shadow,.raven-notifications-view  list box.vertical row {
 	border-radius:	3.0px;
-	box-shadow: 0 1px 2px @shadow, 0 0 0 1px @deco;
+	box-shadow: 0 1px 2px @shadow, 0 0 0 1px @deco, inset 0 0 0 1px @highlight;
 	background-color: @notibg;
 	border: none;
 }
 
-.raven-notifications-view  list box.vertical row{
-	margin: 8px 0px;
-	padding: 4px 8px;
-	border-radius: 3.0px;
-	box-shadow: 0 1px 2px @shadow, 0 0 0 1px @deco;
-	background-color: @notibg;
-	border: none;
-}
+.drop-shadow{margin: 5px 9px;	padding: 4px;}
+.raven-notifications-view  list box.vertical row{margin: 8px 0px;	padding: 4px 8px;}
 
 .raven list box.vertical row button.flat{ margin: 0 -6px;}
 .raven list box.vertical { margin: 0px; margin-left: -2px; margin-right: 3px;}
@@ -2754,7 +2750,7 @@ window box.vertical scrolledwindow .frame .raven-background stack list
 
 .budgie-session-dialog, .budgie-polkit-dialog, .budgie-run-dialog {
 	border-radius:	6.0px;
-	box-shadow: inset 0 0 0 1px @highlight;
+	box-shadow: none;
 	-gtk-icon-style: regular;
 }
 

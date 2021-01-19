@@ -42,7 +42,7 @@
      id="namedview8"
      showgrid="false"
      inkscape:zoom="18.296388"
-     inkscape:cx="-1.0396097"
+     inkscape:cx="-2.1873772"
      inkscape:cy="15.468768"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -69,21 +69,12 @@
      x="0"
      y="31" />
   <rect
-     width="32"
-     height="1"
+     width="1"
+     height="30"
      fill="#FFFFFF"
      fill-opacity="0.4"
      id="rect166-36"
-     style="opacity:0.1;fill:#ffffff;fill-opacity:1"
-     x="-31"
-     y="1" />
-  <rect
-     width="32"
-     height="1"
-     fill="#FFFFFF"
-     fill-opacity="0.4"
-     id="rect166-36-3"
-     style="opacity:0.1;fill:#ffffff;fill-opacity:1"
-     x="-31"
-     y="30" />
+     style="opacity:0.1;fill:#ffffff;fill-opacity:1;stroke-width:0.968248"
+     x="0"
+     y="1.0000002" />
 </svg>

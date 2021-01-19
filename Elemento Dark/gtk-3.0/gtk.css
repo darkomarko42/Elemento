@@ -197,6 +197,9 @@ headerbar:backdrop,
 .fullscreen headerbar,
 .fullscreen .titlebar:not(headerbar) { box-shadow: inset 0 1px @highlight, inset 0 -1px alpha(@highlight,0.5);}
 
+.maximized headerbar.flat,
+.fullscreen headerbar.flat{box-shadow: inset 0 1px @highlight;}
+
 .titlebar.default-decoration { min-height: 30px; box-shadow: inset 0 0 0 1px @highlight;} 
 
 headerbar .title,
@@ -266,7 +269,7 @@ messagedialog{ border-radius: 0 0 6.0px 6.0px;}
  
 dialog .titlebar, headerbar.flat,dialog .titlebar.default-decoration,messagedialog .titlebar, 
 messagedialog .titlebar.default-decoration,dialog .titlebar:backdrop, headerbar.flat:backdrop,dialog .titlebar.default-decoration:backdrop,messagedialog .titlebar:backdrop, 
-messagedialog .titlebar.default-decoration:backdrop { background-color: @bg_color; color: @fg_color; border: none; background-image: none;}
+messagedialog .titlebar.default-decoration:backdrop { background-color: @bg_color; color: @fg_color; border: none; background-image: none; box-shadow: none;}
 
 dialog filechooser treeview.view header button{ box-shadow: inset 0 1px @borders;}
 

@@ -34,8 +34,8 @@
      inkscape:window-maximized="1"
      inkscape:window-y="0"
      inkscape:window-x="0"
-     inkscape:cy="22.028193"
-     inkscape:cx="-4.9763483"
+     inkscape:cy="15.1714"
+     inkscape:cx="-5.8763024"
      inkscape:zoom="23.334524"
      showgrid="false"
      id="namedview8"
@@ -69,21 +69,12 @@
      x="1"
      y="31" />
   <rect
-     width="32"
-     height="1"
+     width="1"
+     height="30"
      fill="#FFFFFF"
      fill-opacity="0.4"
      id="rect166-36"
-     style="opacity:0.1;fill:#ffffff;fill-opacity:1"
+     style="opacity:0.1;fill:#ffffff;fill-opacity:1;stroke-width:0.968246"
      x="1"
      y="1" />
-  <rect
-     width="32"
-     height="1"
-     fill="#FFFFFF"
-     fill-opacity="0.4"
-     id="rect166-36-7"
-     style="opacity:0.1;fill:#ffffff;fill-opacity:1"
-     x="1"
-     y="30" />
 </svg>

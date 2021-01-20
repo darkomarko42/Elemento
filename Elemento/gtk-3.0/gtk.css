@@ -29,7 +29,7 @@
 
 @define-color fg_color alpha(black,0.8);
 @define-color text_color @fg_color;
-@define-color bg_color shade(@base_color,0.93);
+@define-color bg_color shade(@base_color,0.9);
 @define-color base_color white;
 @define-color text_view_bg @base_color;
 @define-color content_view_bg @base_color;

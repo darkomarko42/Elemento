@@ -6,11 +6,11 @@
    inkscape:export-filename="/home/jimmac/Projects/gtk/gtk/theme/Adwaita/assets/check@2-symbolic.symbolic.png"
    inkscape:export-xdpi="192"
    inkscape:export-ydpi="192"
-   height="14"
+   height="16"
    id="svg7384"
    version="1.1"
    inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
-   width="14"
+   width="16"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -36,8 +36,8 @@
      bordercolor="#666666"
      borderopacity="1"
      inkscape:current-layer="layer9"
-     inkscape:cx="-8.5294759"
-     inkscape:cy="34.913399"
+     inkscape:cx="9.0266604"
+     inkscape:cy="9.7779614"
      gridtolerance="10"
      inkscape:guide-bbox="true"
      guidetolerance="10"
@@ -58,14 +58,15 @@
      inkscape:snap-nodes="false"
      inkscape:snap-others="false"
      inkscape:snap-to-guides="true"
-     inkscape:window-height="995"
+     inkscape:window-height="1000"
      inkscape:window-maximized="1"
      inkscape:window-width="1920"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:zoom="11.313708"
+     inkscape:zoom="45.254832"
      inkscape:showpageshadow="false"
-     inkscape:pagecheckerboard="0">
+     inkscape:pagecheckerboard="0"
+     width="16px">
     <inkscape:grid
        dotted="false"
        empspacing="2"
@@ -99,11 +100,62 @@
      inkscape:label="status"
      style="display:inline;opacity:1"
      transform="translate(-401.00015,-339)">
-    <path
-       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="m 413.00204,341.50586 -5.80273,5.01562 -2.59375,-2.56054 -2.10742,2.13476 4.5664,4.50977 7.89844,-6.83008 z"
-       id="path3304"
-       inkscape:connector-curvature="0" />
+    <g
+       id="g1062"
+       transform="matrix(1.2,0,0,1.25,400.00015,338.25)">
+      <g
+         id="layer9-2"
+         inkscape:label="status"
+         style="display:inline;opacity:1"
+         transform="translate(-401.00015,-339)">
+        <path
+           id="path3304"
+           style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3.04692;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+           sodipodi:type="inkscape:offset"
+           inkscape:radius="-0.72739995"
+           inkscape:original="M 412.95508 341.5 L 406.90234 346.46094 L 404.19727 343.92773 L 402 346.03906 L 406.76172 350.5 L 415 343.74414 L 412.95508 341.5 z "
+           d="m 412.88281,342.5 -5.51953,4.52344 a 0.72747269,0.72747269 0 0 1 -0.95898,-0.0312 l -2.20118,-2.0625 -1.14648,1.10156 3.73633,3.50195 7.1543,-5.86523 z"
+           transform="matrix(0.91822053,0,0,1.1374623,33.405268,-47.580838)" />
+      </g>
+      <g
+         id="layer10-9"
+         inkscape:label="devices"
+         style="display:inline"
+         transform="translate(-401.00015,-339)" />
+      <g
+         id="layer11-1"
+         inkscape:label="apps"
+         transform="translate(-401.00015,-339)" />
+      <g
+         id="layer13-2"
+         inkscape:label="places"
+         style="display:inline"
+         transform="translate(-401.00015,-339)" />
+      <g
+         id="layer14-7"
+         inkscape:label="mimetypes"
+         transform="translate(-401.00015,-339)" />
+      <g
+         id="layer15-0"
+         inkscape:label="emblems"
+         style="display:inline"
+         transform="translate(-401.00015,-339)" />
+      <g
+         id="g71291-9"
+         inkscape:label="emotes"
+         style="display:inline"
+         transform="translate(-401.00015,-339)" />
+      <g
+         id="g4953-3"
+         inkscape:label="categories"
+         style="display:inline"
+         transform="translate(-401.00015,-339)" />
+      <g
+         id="layer12-6"
+         inkscape:label="actions"
+         style="display:inline"
+         transform="translate(-401.00015,-339)" />
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"

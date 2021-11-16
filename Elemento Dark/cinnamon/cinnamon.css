@@ -340,7 +340,7 @@ StScrollBar StButton:checked
 /* Images */
 
 .workspace-close-button,
-.window-close { background-image: url("../general/assets/close-window.svg"); height: 32px; width: 32px;}
+.window-close { background-image: url("../general/assets/dark-close-window.svg"); height: 32px; width: 32px;}
 
 .workspace-add-button {
 	background-image: url("../general/assets/dark-add-workspace.svg");

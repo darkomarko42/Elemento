@@ -221,11 +221,13 @@
 <draw_ops name="max_focused">
   <rectangle color="C_titlebar_focused" x="0" y="0" width="width" height="height" filled="true"/>
   <include name="titlebar_highlight"/>
+  <include name="bottom_titlebar_border"/>
 </draw_ops>
 
 <draw_ops name="max_unfocused">
   <rectangle color="C_titlebar_unfocused" x="0" y="0" width="width" height="height" filled="true"/>
   <include name="titlebar_highlight"/>
+  <include name="bottom_titlebar_border"/>
 </draw_ops>
 
 <draw_ops name="entire_dialog_background">

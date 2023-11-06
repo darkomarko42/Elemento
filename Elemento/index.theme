@@ -7,6 +7,6 @@ Encoding=UTF-8
 [X-GNOME-Metatheme]
 GtkTheme=Elemento
 MetacityTheme=Elemento
-IconTheme=Luna-Light
-CursorTheme=Luna
+IconTheme=Marwaita-Light
+CursorTheme=Marwaita
 CursorSize=24

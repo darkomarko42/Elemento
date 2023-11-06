@@ -1,0 +1,59 @@
+
+@import url("gtk-base.css");
+@import url("gtk-version.css");
+@import url("titlebar.css");
+
+@define-color window_bg_color #f0f0f0;
+@define-color window_fg_color mix(black,@window_bg_color,0.2);
+
+@define-color altbar_bg_color shade(@window_bg_color,0.95);
+
+@define-color view_bg_color shade(@window_bg_color,1.2);
+@define-color view_fg_color @window_fg_color;
+
+@define-color accent_bg_color @accent_color;
+@define-color accent_fg_color white;
+
+@define-color borders mix(black,@window_bg_color,0.8);
+@define-color transparent_borders alpha(black,0.2);
+
+@define-color shadow alpha(black,0.5);
+@define-color button_shadow alpha(black,0.1);
+@define-color menu_shadow alpha(black,0.1);
+
+@define-color button_highlight alpha(white,0.5);
+@define-color text_highlight alpha(white,0.5);
+
+@define-color destructive_bg_color @red_2;
+@define-color destructive_fg_color white;
+@define-color destructive_color @destructive_bg_color;
+
+@define-color success_bg_color @green_5;
+@define-color success_fg_color white;
+@define-color success_color @success_bg_color;
+
+@define-color warning_bg_color @orange_3;
+@define-color warning_fg_color black;
+@define-color warning_color @warning_bg_color;
+
+@define-color error_bg_color @destructive_bg_color;
+@define-color error_fg_color @destructive_fg_color;
+@define-color error_color @destructive_bg_color;
+
+check:checked,
+check:indeterminate,
+radio:checked,
+radio:indeterminate,
+switch,
+progressbar trough,
+scale fill,
+scale trough,
+progressbar progress,
+scale highlight,
+levelbar block 
+{ background-clip: border-box;}
+
+headerbar button.suggested-action label,headerbar button.suggested-action image, button.suggested-action
+,
+headerbar button.destructive-action label, headerbar button.destructive-action image, button.destructive-action
+{ text-shadow: 1px 1px alpha(black,0.5); -gtk-icon-shadow: 1px 1px alpha(black,0.5); }
